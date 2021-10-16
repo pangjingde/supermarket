@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.southwind.mmall002.mapper.CartMapper">
+
+    <update id="updateNumById">
+        update cart
+        set quantity=#{quantity}
+        where
+        id=#{id}
+    </update>
+
+    <select id="findByUidAndPid" resultType="com.southwind.mmall002.entity.Cart">
+        SELECT
+            *
+        FROM
+            cart
+        WHERE
+            user_id=#{userId,jdbcType=VARCHAR} AND product_id=#{productId,jdbcType=VARCHAR}
+    </select>
+
+</mapper>
